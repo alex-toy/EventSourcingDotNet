@@ -1,4 +1,5 @@
 ﻿using EventSourcing.Events;
+using EventSourcing.Events.Students;
 
 namespace EventSourcing.Models;
 

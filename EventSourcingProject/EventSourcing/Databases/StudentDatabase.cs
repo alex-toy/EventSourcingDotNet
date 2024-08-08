@@ -1,7 +1,7 @@
 ﻿using EventSourcing.Events;
 using EventSourcing.Models;
 
-namespace EventSourcing;
+namespace EventSourcing.Databases;
 
 public class StudentDatabase
 {
@@ -22,7 +22,7 @@ public class StudentDatabase
 
         if (events is null) return student;
 
-        foreach(KeyValuePair<DateTime, Event> entry in events) 
+        foreach (KeyValuePair<DateTime, Event> entry in events)
         {
             student.Apply(entry.Value);
         }

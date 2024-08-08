@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace EventSourcing.Events;
+﻿namespace EventSourcing.Events;
 
 public abstract class Event
 {

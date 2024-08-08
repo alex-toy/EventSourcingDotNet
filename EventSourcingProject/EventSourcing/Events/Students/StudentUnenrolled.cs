@@ -1,5 +1,4 @@
-﻿
-namespace EventSourcing.Events;
+﻿namespace EventSourcing.Events.Students;
 
 public class StudentUnenrolled : Event
 {

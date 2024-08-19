@@ -1,7 +1,7 @@
 ﻿
 namespace EventSourcing.Events.Products;
 
-internal class ProductCreated : Event
+public class ProductCreated : Event
 {
     public Guid ProductId { get; set; }
 

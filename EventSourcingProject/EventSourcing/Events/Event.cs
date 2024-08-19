@@ -2,7 +2,7 @@
 
 public abstract class Event
 {
-    public DateTime OccuredAt {  get; set; }
+    public required DateTime OccuredAt {  get; set; }
 
     public abstract Guid StreamId { get; } 
 }

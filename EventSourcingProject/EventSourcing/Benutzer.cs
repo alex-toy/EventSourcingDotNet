@@ -1,4 +1,5 @@
 ﻿using EventSourcing.Databases;
+using EventSourcing.Events.Orders;
 using EventSourcing.Events.Products;
 using EventSourcing.Events.Students;
 using EventSourcing.Models;
@@ -40,6 +41,27 @@ public static class Benutzer
         Product? product2 = productDatabase.Get(productId2);
 
         Console.ReadKey();
+    }
+
+    public static void OrderUser()
+    {
+        EntityDatabase<Order> _db = new();
+
+        Guid orderId = Guid.NewGuid();
+
+        OrderCreated orderCreated = new() { StudentName = "alex", OrderId = orderId, OccuredAt = DateTime.Now };
+        OrderProductAdded orderProductAdded = new() { OrderId = orderId, ProductName = "shoes", Quantity = 2, OccuredAt = DateTime.Now };
+        OrderProductRemoved orderProductRemoved = new() { OrderId = orderId, ProductName = "shoes", OccuredAt = DateTime.Now };
+        OrderProductAdded orderProductAdded2 = new() { OrderId = orderId, ProductName = "pants", Quantity = 3, OccuredAt = DateTime.Now };
+        OrderProductAdded orderProductAdded3 = new() { OrderId = orderId, ProductName = "iphone", Quantity = 4, OccuredAt = DateTime.Now };
+
+        _db.Append(orderCreated);
+        _db.Append(orderProductAdded);
+        _db.Append(orderProductRemoved);
+        _db.Append(orderProductAdded2);
+        _db.Append(orderProductAdded3);
+
+        Order? order = _db.Get(orderId);
     }
 
     public static void StudentUser()
